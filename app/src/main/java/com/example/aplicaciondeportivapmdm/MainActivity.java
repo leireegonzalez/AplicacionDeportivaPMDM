@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,18 +18,31 @@ public class MainActivity extends AppCompatActivity {
     private Button rondas_button;
     private Button reinicio_button;
 
+    private EditText editTextTrabajo;
+    private EditText editTextDescanso;
+    private EditText editTextEjercicios;
+    private EditText editTextRondas;
+    private EditText editTextReinicioRonda;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //declaro los botones
         play_button = findViewById(R.id.botonPrincipal);
         trabajo_button = findViewById(R.id.botonTrabajo);
         descanso_button = findViewById(R.id.botonDescanso);
         ejercicio_button = findViewById(R.id.botonEjercicios);
         rondas_button = findViewById(R.id.botonRondas);
         reinicio_button = findViewById(R.id.botonreinicioRonda);
+
+        //declaro los edittext
+        editTextTrabajo= findViewById(R.id.editTextTrabajo);
+        editTextDescanso= findViewById(R.id.editTextDescanso);
+        editTextEjercicios= findViewById(R.id.editTextEjercicios);
+        editTextRondas= findViewById(R.id.editTextRondas);
+        editTextReinicioRonda= findViewById(R.id.editTextReinicioRonda);
 
 
         play_button.setOnClickListener(new View.OnClickListener() {
@@ -43,30 +57,59 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openRuletaActivity();
+
+                // Código en la ActividadDestino
+                Intent intent = getIntent();
+                String valor = intent.getStringExtra("tiempo");
+
+                editTextTrabajo.setText(valor);
+
             }
         });
         descanso_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRuletaActivity();
+
+                // Código en la ActividadDestino
+                Intent intent = getIntent();
+                String valor = intent.getStringExtra("tiempo");
+
+                editTextDescanso.setText(valor);
             }
         });
         ejercicio_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRuletaActivity();
+
+                // Código en la ActividadDestino
+                Intent intent = getIntent();
+                String valor = intent.getStringExtra("tiempo");
+
+                editTextEjercicios.setText(valor);
             }
         });
         rondas_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRuletaActivity();
+                // Código en la ActividadDestino
+                Intent intent = getIntent();
+                String valor = intent.getStringExtra("tiempo");
+
+                editTextRondas.setText(valor);
             }
         });
         reinicio_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRuletaActivity();
+                // Código en la ActividadDestino
+                Intent intent = getIntent();
+                String valor = intent.getStringExtra("tiempo");
+
+                editTextReinicioRonda.setText(valor);
             }
         });
 

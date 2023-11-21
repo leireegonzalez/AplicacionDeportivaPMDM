@@ -2,6 +2,7 @@ package com.example.aplicaciondeportivapmdm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -48,5 +49,10 @@ public class RuletaMain extends AppCompatActivity {
 
         String cadena= String.format(Locale.getDefault(),"%02d:%02d", minutos, segundos);
         tiempo.setText(cadena);
+
+        Intent intent = new Intent(RuletaMain.this, MainActivity.class);
+        intent.putExtra("tiempo", cadena);
+        startActivity(intent);
+
     }
 }
