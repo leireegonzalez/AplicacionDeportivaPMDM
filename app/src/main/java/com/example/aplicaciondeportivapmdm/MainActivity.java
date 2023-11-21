@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         trabajo_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRuletaActivity();
+                openRuletaActivity("trabajo");
 
                 // Código en la ActividadDestino
                 Intent intent = getIntent();
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         descanso_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRuletaActivity();
+                openRuletaActivity("descanso");
 
                 // Código en la ActividadDestino
                 Intent intent = getIntent();
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         ejercicio_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRuletaActivity();
+                openRuletaActivity("ejercicio");
 
                 // Código en la ActividadDestino
                 Intent intent = getIntent();
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         rondas_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRuletaActivity();
+                openRuletaActivity("rondas");
                 // Código en la ActividadDestino
                 Intent intent = getIntent();
                 String valor = intent.getStringExtra("tiempo");
@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         reinicio_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRuletaActivity();
+                openRuletaActivity("reinicio");
                 // Código en la ActividadDestino
                 Intent intent = getIntent();
                 String valor = intent.getStringExtra("tiempo");
@@ -119,8 +119,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void openRuletaActivity() {
+    private void openRuletaActivity(String texto) {
         Intent intent = new Intent(MainActivity.this, RuletaMain.class);
+        intent.putExtra("textocolor", texto);
+
         startActivity(intent);
     }
 }
