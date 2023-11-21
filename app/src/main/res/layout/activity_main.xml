@@ -1,18 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/red"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="411dp"
+        android:layout_height="251dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:background="@color/red">
+
+        <EditText
+            android:id="@+id/tiempototal"
+            android:layout_width="342dp"
+            android:layout_height="145dp"
+            android:layout_gravity="center|top"
+            android:backgroundTint="@color/transparent"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:gravity="bottom|center"
+            android:inputType="number"
+            android:maxLength="5"
+            android:text="00:00"
+            android:textColor="@color/white"
+            android:textSize="80dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:text="Interval Timer"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+        />
+        <ImageButton
+            android:id="@+id/botonPrincipal"
+            android:layout_width="wrap_content"
+            android:layout_height="101dp"
+            android:layout_gravity="center|bottom"
+            android:backgroundTint="@color/transparent"
+            android:contentDescription="play"
+            android:padding="10dp"
+            android:layout_marginBottom="10dp"
+            app:srcCompat="@drawable/play_button_blanco_tranparente_100" />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout"
+        android:layout_width="387dp"
+        android:layout_height="442dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+
+        <Button
+            android:id="@+id/botonTrabajo"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="353dp"
+            android:backgroundTint="@color/green"
+            android:fontFamily="sans-serif"
+            android:text="Trabajo"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:icon="@android:drawable/ic_media_play" />
+
+        <Button
+            android:id="@+id/botonDescanso"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="-1dp"
+            android:layout_marginBottom="281dp"
+            android:backgroundTint="@color/pink"
+            android:fontFamily="sans-serif"
+            android:text="Descanso"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:icon="@android:drawable/ic_media_pause" />
+
+        <Button
+            android:id="@+id/botonEjercicios"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="210dp"
+            android:backgroundTint="@color/light_grey"
+            android:fontFamily="sans-serif"
+            android:text="Ejercicios"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:icon="@android:drawable/ic_lock_idle_low_battery" />
+
+        <Button
+            android:id="@+id/botonRondas"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="-1dp"
+            android:layout_marginBottom="136dp"
+            android:backgroundTint="#BBC9FF"
+            android:fontFamily="sans-serif"
+            android:text="Rondas"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:icon="@android:drawable/ic_menu_rotate" />
+
+        <Button
+            android:id="@+id/botonreinicioRonda"
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="63dp"
+            android:backgroundTint="#FFEC8D"
+            android:fontFamily="sans-serif"
+            android:text="Reinicio de la ronda"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            app:icon="@android:drawable/ic_lock_idle_alarm" />
+
+
+        <EditText
+            android:id="@+id/editTextDescanso"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="292dp"
+            android:autofillHints=""
+            android:backgroundTint="#00FFFFFF"
+            android:baselineAligned="false"
+            android:cursorVisible="false"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:gravity="bottom|center"
+            android:inputType="number"
+            android:maxLength="5"
+            android:text="00:00"
+            android:textColor="#E37292"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextRondas"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="148dp"
+            android:autofillHints=""
+            android:backgroundTint="#00FFFFFF"
+            android:baselineAligned="false"
+            android:cursorVisible="false"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:gravity="bottom|center"
+            android:inputType="number"
+            android:maxLength="10"
+            android:text="0X"
+            android:textColor="#8491C5"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextReinicioRonda"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="11dp"
+            android:layout_marginBottom="72dp"
+            android:autofillHints=""
+            android:backgroundTint="#00FFFFFF"
+            android:baselineAligned="false"
+            android:cursorVisible="false"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:gravity="bottom|center"
+            android:inputType="number"
+            android:maxLength="5"
+            android:text="00:00"
+            android:textColor="#DABD53"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextEjercicios"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="220dp"
+            android:autofillHints=""
+            android:backgroundTint="#00FFFFFF"
+            android:baselineAligned="false"
+            android:cursorVisible="false"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:gravity="bottom|center"
+            android:inputType="number"
+            android:maxLength="10"
+            android:text="0"
+            android:textColor="#958A8A"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/editTextTrabajo"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="9dp"
+            android:layout_marginBottom="363dp"
+            android:autofillHints=""
+            android:backgroundTint="#00FFFFFF"
+            android:baselineAligned="false"
+            android:cursorVisible="false"
+            android:ems="10"
+            android:fontFamily="sans-serif-light"
+            android:gravity="bottom|center"
+            android:inputType="number"
+            android:maxLength="5"
+            android:text="00:00"
+            android:textColor="#F05E9755"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>
