@@ -2,6 +2,7 @@ package com.example.aplicaciondeportivapmdm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -22,6 +23,8 @@ public class CronometroMain extends AppCompatActivity {
     private ImageButton boton_play;
     int indice = 0;
 
+    private TextView cancelar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +33,16 @@ public class CronometroMain extends AppCompatActivity {
         progressCircular=(ProgressBar) findViewById(R.id.progressBar);
         boton_play=(ImageButton) findViewById(R.id.imageButtonplay);
         progressText=(TextView) findViewById(R.id.timer);
+        cancelar=(TextView) findViewById(R.id.btnCancelar);
 
+        cancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CronometroMain.this, MainActivity.class);
+                startActivity(intent);
+                // a lo mejor habria que controlar que se pare el contador y vuelva a la pantalla preparate pero mucho texto
+            }
+        });
         boton_play.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -51,6 +63,7 @@ public class CronometroMain extends AppCompatActivity {
         actualizarContador();
 
     }
+
 
     //método donde corre el tiempo en el progressbar y el contador
     private void continuarTiempo(){
