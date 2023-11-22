@@ -114,10 +114,11 @@
                 android:backgroundTint="@color/transparent"
                 android:contentDescription="play"
                 android:visibility="visible"
-                app:srcCompat="@drawable/play_button_blanco_tranparente_100" />
+                android:src="@drawable/play_img"
+                android:scaleType="fitCenter" />
 
-            <ImageView
-                android:id="@+id/imageViewskip"
+            <ImageButton
+                android:id="@+id/botonSkip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/progressBar"
@@ -128,7 +129,13 @@
                 android:layout_marginTop="-3dp"
                 android:layout_marginEnd="29dp"
                 android:layout_marginBottom="47dp"
-                app:srcCompat="@drawable/botonskipandroid2" />
+                android:src="@drawable/skip_boton"
+                android:backgroundTint="@color/transparent"
+                android:contentDescription="play"
+                android:visibility="visible"
+                android:scaleType="fitCenter"/>
+
+
 
         </RelativeLayout>
 

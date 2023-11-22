@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -22,7 +21,6 @@ public class CronometroMain extends AppCompatActivity {
     private TextView progressText;
     private ImageButton boton_play;
     int indice = 0;
-    private Handler handler=new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +28,7 @@ public class CronometroMain extends AppCompatActivity {
         setContentView(R.layout.cronometro_main);
 
         progressCircular=(ProgressBar) findViewById(R.id.progressBar);
-        //boton_play=(ImageButton) findViewById(R.id.botonPrincipal);
+        boton_play=(ImageButton) findViewById(R.id.imageButtonplay);
         progressText=(TextView) findViewById(R.id.timer);
 
         boton_play.setOnClickListener(new View.OnClickListener(){
@@ -77,6 +75,7 @@ public class CronometroMain extends AppCompatActivity {
 
                 tiempoCorriendo=false;
                 //mostrar botón de play
+                boton_play.setImageDrawable(getResources().getDrawable(R.drawable.play_img));
                 indice++;
                 progressCircular.setProgress(100);
                 boton_play.setVisibility(View.INVISIBLE);
@@ -85,6 +84,7 @@ public class CronometroMain extends AppCompatActivity {
 
         tiempoCorriendo=true;
         //cambiar a botón de pausa
+        boton_play.setImageDrawable(getResources().getDrawable(R.drawable.pause_img));
     }
 
     //método para parar el tiempo y cambiar el botón
@@ -92,7 +92,7 @@ public class CronometroMain extends AppCompatActivity {
 
         contadorTiempo.cancel();
         tiempoCorriendo=false;
-        //cambiar a botón de play
+        boton_play.setImageDrawable(getResources().getDrawable(R.drawable.play_img));
 
     }
 
