@@ -142,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void openRuletaActivity(String texto) {
         Intent intent = new Intent(MainActivity.this, RuletaMain.class);
-        intent.putExtra("palabra", texto);
 
         startActivity(intent);
     }

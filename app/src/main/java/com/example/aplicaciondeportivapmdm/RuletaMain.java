@@ -24,7 +24,7 @@ public class RuletaMain extends AppCompatActivity {
     private SeekBar seekBar;
     private TextView tiempo;
     private Button lapiz;
-    private  TextView textView;
+
     private boolean isUpdating = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +48,6 @@ public class RuletaMain extends AppCompatActivity {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                Intent intent = getIntent();
-                String valor = intent.getStringExtra("palabra");
-
-                textView.setText(valor);
             }
 
             @Override
@@ -116,12 +112,6 @@ public class RuletaMain extends AppCompatActivity {
 
         });
 
-        lapiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
     }
 
