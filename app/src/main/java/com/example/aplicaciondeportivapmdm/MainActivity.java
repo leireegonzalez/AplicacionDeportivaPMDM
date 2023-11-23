@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextRondas;
     private EditText editTextReinicioRonda;
 
+
+    private boolean botonpulsado= false;
+    public static final String EXTRA_TIME = "tiempo";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,75 +48,93 @@ public class MainActivity extends AppCompatActivity {
         editTextReinicioRonda= findViewById(R.id.editTextReinicioRonda);
 
 
+
+
+
+
+
         play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openCronometroActivity();
 
+
             }
         });
+
 
         trabajo_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                botonpulsado= false;
+
                 openRuletaActivity("trabajo");
 
-                // Código en la ActividadDestino
-                Intent intent = getIntent();
-                String valor = intent.getStringExtra("tiempo");
-
-                editTextTrabajo.setText(valor);
+                botonpulsado= true;
 
             }
+            // Código en la ActividadDestino
+
         });
         descanso_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                botonpulsado= false;
+
+
                 openRuletaActivity("descanso");
+                botonpulsado= true;
 
-                // Código en la ActividadDestino
-                Intent intent = getIntent();
-                String valor = intent.getStringExtra("tiempo");
-
-                editTextDescanso.setText(valor);
             }
         });
         ejercicio_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                botonpulsado= false;
+
                 openRuletaActivity("ejercicio");
 
-                // Código en la ActividadDestino
-                Intent intent = getIntent();
-                String valor = intent.getStringExtra("tiempo");
+                botonpulsado= true;
 
-                editTextEjercicios.setText(valor);
             }
         });
         rondas_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openRuletaActivity("rondas");
-                // Código en la ActividadDestino
-                Intent intent = getIntent();
-                String valor = intent.getStringExtra("tiempo");
 
-                editTextRondas.setText(valor);
             }
         });
         reinicio_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openRuletaActivity("reinicio");
-                // Código en la ActividadDestino
-                Intent intent = getIntent();
-                String valor = intent.getStringExtra("tiempo");
+                String clave="reinicio" ;
+                openRuletaActivity(clave);
 
-                editTextReinicioRonda.setText(valor);
             }
         });
 
+
+
+            actualizaredittext(editTextTrabajo);
+            actualizaredittext(editTextDescanso);
+            actualizaredittext(editTextEjercicios);
+            actualizaredittext(editTextRondas);
+            actualizaredittext(editTextReinicioRonda);
+
+
     }
+
+    private void actualizaredittext(EditText editText) {
+
+        Intent intent = getIntent();
+        String valor = intent.getStringExtra(EXTRA_TIME);
+
+        editText.setText(valor);
+    }
+
+
     private void openCronometroActivity() {
         Intent intent = new Intent(MainActivity.this, CronometroMain.class);
         startActivity(intent);
@@ -121,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void openRuletaActivity(String texto) {
         Intent intent = new Intent(MainActivity.this, RuletaMain.class);
-        intent.putExtra("textocolor", texto);
 
         startActivity(intent);
     }
