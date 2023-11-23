@@ -9,6 +9,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -23,7 +24,7 @@ public class RuletaMain extends AppCompatActivity {
 
     private SeekBar seekBar;
     private TextView tiempo;
-    private Button lapiz;
+    private Button volver;
 
     private boolean isUpdating = false;
     @Override
@@ -33,15 +34,21 @@ public class RuletaMain extends AppCompatActivity {
 
         seekBar = findViewById(R.id.seek_bar);
         tiempo = findViewById(R.id.tiempo);
+        volver = findViewById(R.id.volver);
 
-        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
-            @Override
-            public void handleOnBackPressed() {
+        volver.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
 
-                // Iniciar la segunda actividad
-               // startActivity(intent);
+                String time = tiempo.getText().toString();
+                // Crear un Intent para abrir la segunda actividad
+                Intent intent = new Intent(RuletaMain.this, MainActivity.class);
+
+                // Adjuntar datos al Intent con putExtra
+                intent.putExtra(MainActivity.EXTRA_TIME, time);
+                startActivity(intent);
             }
-        };
+
+        });
 
 
         tiempo.addTextChangedListener(new TextWatcher() {
@@ -69,7 +76,11 @@ public class RuletaMain extends AppCompatActivity {
                         // Convertir milisegundos a segundos
                         int tiempoEnSegundos = (int) (tiempoMillis / 1000);
 
-                        seekBar.setProgress(tiempoEnSegundos);
+                        if (tiempoEnSegundos > 180) {
+                            tiempoEnSegundos = 180;
+                        }
+
+                        seekBar.setProgress(tiempoEnSegundos, true);
 
                     } catch (ParseException e) {
                         e.printStackTrace();
@@ -85,13 +96,6 @@ public class RuletaMain extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-                String time =  tiempo.getText().toString();
-                // Crear un Intent para abrir la segunda actividad
-                Intent intent = new Intent(RuletaMain.this, MainActivity.class);
-
-                // Adjuntar datos al Intent con putExtra
-                intent.putExtra(MainActivity.EXTRA_TIME, time);
-                startActivity(intent);
 
             }
         });

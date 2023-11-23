@@ -102,5 +102,23 @@
         app:srcCompat="@drawable/cronometrolinea"
         app:tint="#FFFFFF" />
 
+    <Button
+        android:id="@+id/volver"
+        style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
+        android:backgroundTint="#E16161"
+        android:cursorVisible="false"
+        android:elevation="10dp"
+        android:stateListAnimator="@android:anim/accelerate_interpolator"
+        android:text="Volver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.942" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
