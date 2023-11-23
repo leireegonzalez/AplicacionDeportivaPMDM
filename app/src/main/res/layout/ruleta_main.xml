@@ -8,18 +8,19 @@
     tools:context=".RuletaMain">
 
 
-<TextView
+    <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="99dp"
+        android:layout_height="46dp"
         android:text="Trabajo"
         android:textColor="#FFFFFF"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintVertical_bias="0.023" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -78,10 +79,10 @@
         android:rotation="270"
         android:thumb="@drawable/ic_launcher_foreground"
         android:visibility="visible"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-88dp"
 
-        tools:layout_editor_absoluteY="40dp" />
+        tools:layout_editor_absoluteX="-88dp" />
 
     <ImageView
         android:id="@+id/imageView2"

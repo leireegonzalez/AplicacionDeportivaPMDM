@@ -24,7 +24,7 @@ public class RuletaMain extends AppCompatActivity {
     private SeekBar seekBar;
     private TextView tiempo;
     private Button lapiz;
-
+    private  TextView textView;
     private boolean isUpdating = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +37,21 @@ public class RuletaMain extends AppCompatActivity {
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
-                // Crear un Intent para abrir la segunda actividad
-                Intent intent = new Intent(RuletaMain.this, MainActivity.class);
-
-                // Adjuntar datos al Intent con putExtra
-                intent.putExtra("tiempo", tiempo.getText());
-                startActivity(intent);
 
                 // Iniciar la segunda actividad
-                startActivity(intent);
+               // startActivity(intent);
             }
         };
+
 
         tiempo.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+                Intent intent = getIntent();
+                String valor = intent.getStringExtra("palabra");
+
+                textView.setText(valor);
             }
 
             @Override
@@ -89,6 +88,15 @@ public class RuletaMain extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
+                String time =  tiempo.getText().toString();
+                // Crear un Intent para abrir la segunda actividad
+                Intent intent = new Intent(RuletaMain.this, MainActivity.class);
+
+                // Adjuntar datos al Intent con putExtra
+                intent.putExtra(MainActivity.EXTRA_TIME, time);
+                startActivity(intent);
+
             }
         });
 
@@ -108,6 +116,13 @@ public class RuletaMain extends AppCompatActivity {
 
         });
 
+        lapiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
 
     private void cambiaValor() {
@@ -125,4 +140,5 @@ public class RuletaMain extends AppCompatActivity {
         isUpdating = false;
 
     }
+
 }
