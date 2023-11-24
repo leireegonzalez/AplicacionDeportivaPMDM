@@ -10,13 +10,17 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class CronometroMain extends AppCompatActivity {
 
+    public static final String TIEMPO_TOTAL = "tiempototal";
     private CountDownTimer contadorTiempo;
-    private static final long tiempoComienzo=10000;
-    private long tiempoQueda=tiempoComienzo;
+    private long tiempoComienzo;
+    private long tiempoQueda;
     boolean tiempoCorriendo;
     private ProgressBar progressCircular;
     private TextView progressText;
@@ -24,6 +28,8 @@ public class CronometroMain extends AppCompatActivity {
     int indice = 0;
 
     private TextView cancelar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,26 @@ public class CronometroMain extends AppCompatActivity {
         boton_play=(ImageButton) findViewById(R.id.imageButtonplay);
         progressText=(TextView) findViewById(R.id.timer);
         cancelar=(TextView) findViewById(R.id.btnCancelar);
+
+        Intent intent = getIntent();
+        String valor = intent.getStringExtra(TIEMPO_TOTAL);
+
+        SimpleDateFormat formato = new SimpleDateFormat("mm:ss", Locale.getDefault());
+
+        Date tiempoDate = null;
+        try {
+            tiempoDate = formato.parse(String.valueOf(valor));
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        tiempoComienzo = tiempoDate.getTime();
+
+        progressText.setText(valor);
+
+        tiempoQueda = tiempoComienzo;
+
 
         cancelar.setOnClickListener(new View.OnClickListener() {
             @Override

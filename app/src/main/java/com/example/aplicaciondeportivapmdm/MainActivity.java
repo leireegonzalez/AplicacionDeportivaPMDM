@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextRondas;
     private EditText editTextReinicioRonda;
 
+    private EditText editTextTotal;
+
 
     private boolean botonpulsado= false;
     public static final String EXTRA_TIME = "tiempo";
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         reinicio_button = findViewById(R.id.botonreinicioRonda);
 
         //declaro los edittext
+        editTextTotal = findViewById(R.id.tiempototal);
         editTextTrabajo= findViewById(R.id.editTextTrabajo);
         editTextDescanso= findViewById(R.id.editTextDescanso);
         editTextEjercicios= findViewById(R.id.editTextEjercicios);
@@ -48,16 +51,17 @@ public class MainActivity extends AppCompatActivity {
         editTextReinicioRonda= findViewById(R.id.editTextReinicioRonda);
 
 
-
-
-
-
-
         play_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openCronometroActivity();
 
+                String time = editTextTotal.getText().toString();
+                // Crear un Intent para abrir la segunda actividad
+                Intent intent = new Intent(MainActivity.this, CronometroMain.class);
+
+                // Adjuntar datos al Intent con putExtra
+                intent.putExtra(CronometroMain.TIEMPO_TOTAL, time);
+                startActivity(intent);
 
             }
         });
